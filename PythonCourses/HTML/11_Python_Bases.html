@@ -14259,18 +14259,18 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Python,-mon-amour">Python, mon amour<a id="top" /><a class="anchor-link" href="#Python,-mon-amour">&#182;</a></h1><p>Python, c'est trop cool. Voilà. ... ... Quoi je ne suis pas objectif ? ... ok je vais plus expliciter.</p>
-<p>Alors Python, pourquoi une si grande hype ? C'est plutot simple :</p>
-<ol>
-<li>Le language est très "verbeux", c'est à dire qu'il est facilement compréhensible même pour un néophite</li>
-<li>C'est un langage très puissant et rapide (l'un des plus rapide à l'exception du C/C++)</li>
-<li>C'est très simple d'utilisation</li>
-<li>La communauté est très grande et permet d'avoir un grand support et beaucoup de librairies puissantes, notamment pour la manipulation de données</li>
-</ol>
-<p>De manière générale, en ce moment, c'est l'un des langage les plus utilisé et aimé, si ce n'est le plus.</p>
-<p>Allez, c'est parti, commençons !</p>
-<hr>
-<p>Dans ce premier chapitre, on va voir un peut toutes les bases de Python : les variables, les conditions, les listes, les boucles... Bref un peu tout ! Il n'est pas nécessaire de tout retenir par coeur, mais plutot de se souvenir que ça existe, comprendre le fonctionnement et ainsi, si besoin, de savoir quoi chercher... Et aussi (et surtout) où chercher : dans <a href="https://docs.python.org/3/reference/">la doc Python</a> ! D'ailleurs, plus tard, il en sera de même avec tout ce que nous verons, comme les librairies Pandas, Numpy... Mais ça, on le vera plus tard !</p>
+<h1 id="Python,-Les-bases">Python, Les bases<a id="top" /><a class="anchor-link" href="#Python,-Les-bases">&#182;</a></h1><p>Dans ce premier chapitre, on va voir un peut toutes les bases de Python :</p>
+<ul>
+<li>les variables</li>
+<li>les conditions</li>
+<li>les listes</li>
+<li>les boucles</li>
+<li>les fonctions</li>
+<li>Et cetera ...</li>
+</ul>
+<p>Bref un peu tout ! Il n'est pas nécessaire de tout retenir par coeur, mais plutot de se souvenir que ça existe et savoir où rechercher l'information (spoil : dans la documentation), comprendre le fonctionnement et donc savoir à quoi cela sert. En effet, à part si vous manipulez le langage tous les jours depuis plusieurs mois ou même années, sinon il est peut probable de se souvenir par coeur de tout. Et même si vous connaissez parfaitement cela, vous utiliserez ensuite des librairies apportant plus de concepts, plus de fonctions et donc plus de choses à retenir.</p>
+<p>Bref, retenez bien qu'il n'est pas nécessaire d'apprendre par coeur le langage (puis les librairies) mais plutot de comprendre la logique et savoir où cherche quelle information. Et donc, "où chercher ?", "c'est quoi cette 'doc' ?", c'est simplement le "<a href="https://docs.python.org/3/reference/">manuel d'utilisation</a>" du langage et de ses fonctions. N'hésitez pas à visiter ce lien aussi souvent que nécéssaire ! D'ailleurs, plus tard, il en sera de même avec tout ce que nous verons. Nous verrons par exemple les librairies Pandas et Numpy, qui sont deux des principales librairies de Python, et il faurdra aussi penser à visiter la documentation.</p>
+<p>Commençons dès maintenant ! N'hésitez pas si vous connaissez déjà à regarder en diagonale, vous apprendrez peut etre quelque chose !</p>
 <hr>
 <p><strong>Sommaire</strong></p>
 <ul>
@@ -17135,16 +17135,39 @@ durée d&#39;execution :  1.0091294
 <p><a href="#top">Back to top</a></p>
 <hr>
 <h1 id="14.-Conclusion-">14. Conclusion <a id="chap14PyBase" /><a class="anchor-link" href="#14.-Conclusion-">&#182;</a></h1><p>Si vous maitrisez tout ça, vous êtes prêt à bien programmer en Python, Bravo !</p>
-<p>Encore une fois, maitriser ne veut pas dire connaitre par coeur le fonctionnement, mais se souvenir de l'existance d'à quoi cela peut servir et surtout, de comment retrouver l'information (dans la doc Python).</p>
-<p>Et ensuite ? Ensuite, tout dépend de ce que vous souhaitez faire. La partie "Python avancé" présente des points puissant et intéressant de Python, donc vous aurez besoin lorsque vous pousserez le langage plus loin, quand vous aurez déjà un peu d'expérience notamment. La partie POO (Programmation Orientée Objet) est surtout utile quand vous ferez du logiciel, bien que la première partie de ce cours pourra toujours vous être utile (regardez un coup !). Bref pour vous aider, vous êtes :</p>
+<p>Encore une fois, maitriser ne veut pas dire connaitre par coeur le fonctionnement, mais se souvenir de l'existance et d'à quoi cela peut servir. En effet, il faut surtout savoir retrouver l'information qui vous aidera à résoudre proprement un problème. C'est là que la documentation est importante.</p>
+<hr>
+<p><strong>"proprement" ?</strong></p>
+<p>Oui, programmer proprement. Chaque langage à ses spécificités et utiliser les spécificités et il est important de bien les comprendre pour faire un code lisible et efficace. Par exemple, comme on l'a vu, on peut par exemple, si l'on souhaite faire la somme de tous les éléments d'un tableau, écrire :</p>
+<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="n">somme</span> <span class="o">=</span> <span class="n">somme</span> <span class="o">+</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">somme</span><span class="p">)</span>
+</pre></div>
+<p>Ou plutôt de manière plus efficace et propre écrire :</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">liste</span><span class="p">))</span>
+</pre></div>
+<p>Bon oui là j'ai forcé mais vous avez compris la logique !</p>
+<hr>
+<p><strong>Et ensuite, quoi apprendre ?</strong></p>
+<p>Ensuite, tout dépend de ce que vous souhaitez faire. En effet, la partie POO, par exemple, n'est pas utile pour tous, bien que la première partie devrait être connue par tous. Donc demandez vous si vous êtes plutôt :</p>
 <ul>
-<li>Plutot <strong>Software</strong>, alors la POO, les design patterns et les tests sont importants + la partie avancée si besoin</li>
-<li>Plutot <strong>Web</strong>, alors la POO et les test sont importants + la partie avancée et design patterns si besoin</li>
-<li>Plutot <strong>Data</strong>, alors la partie Numpy est très importante + la partie avancée et POO si besoin</li>
-<li>Pultot <strong>Robotique</strong>, alors la partie POO, Numpy, une partie de l'avancé (les yields notamment) et test sont importantes + les design patterns si besoin </li>
-<li>...</li>
+<li><strong>Software</strong>, alors la POO, les design patterns et les tests sont importants + la partie avancée si besoin</li>
+<li><strong>Web</strong>, alors la POO et les test sont importants + la partie avancée et design patterns si besoin</li>
+<li><strong>Robotique</strong>, alors la partie POO, Numpy, une partie de l'avancé (les yields notamment) et test sont importantes + les design patterns si besoin </li>
+<li><strong>Data</strong>, alors la partie Numpy est très importante + la partie avancée et POO si besoin</li>
 </ul>
-<p>Maintenant, amusez-vous !</p>
+<p>Pour vous aider, j'ai organiser les fichiers selon un code :</p>
+<ul>
+<li>Les cours en 1* comme celui-ci, sont des cours généraux sur Python</li>
+<li>Les cours en 2* concernent des librairies très courantes quoi que vous fassiez </li>
+<li>Les cours en 3* concernent la branche plus développement, que ça soit du logiciel, du web, du jeux...</li>
+<li>Les cours en 4* concernent la branche plus data et notamment data science, donc tout ce qui est manipulation de la données, statistiques, machine learning, deep learning...</li>
+</ul>
+<p>Bref faites un tour et surtout, amusez-vous !</p>
 
 </div>
 </div>

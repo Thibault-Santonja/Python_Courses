@@ -14259,697 +14259,36 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Learn-Programmation-with-Python-">Learn Programmation with Python <a class="anchor" id="Title" /><a class="anchor-link" href="#Learn-Programmation-with-Python-">&#182;</a></h1>
+<h1 id="Design-patterns">Design patterns<a class="anchor" id="Title" /><a class="anchor-link" href="#Design-patterns">&#182;</a></h1>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Intro">Intro<a class="anchor-link" href="#Intro">&#182;</a></h2><p>We'll see some Python basis, some Design Patterns algorithm and their Python implementation and finally, how to test your code (and it's really important and not so difficult !).</p>
-<h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h2><ul>
-<li><a href="#Basis">1. Python basis</a><br>
-\</li>
-<li><a href="#Intro">2. Design Patterns</a><ul>
-<li><a href="#Singleton">2.1. Singleton (Creational)</a></li>
-<li><a href="#Factory">2.2. Factory (Creational)</a></li>
-<li><a href="#Strategy">2.3. Strategy (Behavioral)</a></li>
-<li><a href="#Observer">2.4. Observer (Behavioral)</a></li>
-<li><a href="#Builder">2.5. Builder (Creational)</a></li>
-<li><a href="#Adapter">2.6. Adapter (Structural)</a></li>
-<li><a href="#State">2.7. State (Behavioral)</a><br>
-\</li>
-</ul>
-</li>
-<li><a href="#Test">3. Testing Your Code</a></li>
-</ul>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="#Title">Back to the top.</a></p>
-<hr>
-<h1 id="1.-Python-basis--">1. Python basis  <a class="anchor" id="Basis" /><a class="anchor-link" href="#1.-Python-basis--">&#182;</a></h1>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># base type : int, lang, float, complex, str, bytes, byte array, list, tuple, set, frozenset, dict</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">listt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">listt</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">listt</span><span class="p">)),</span> <span class="n">listt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="nb">print</span><span class="p">(</span><span class="n">listt</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">listt</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">listt</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">listt</span><span class="p">)),</span>
-<span class="n">listt</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">listt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="nb">print</span><span class="p">(</span><span class="n">listt</span><span class="p">),</span> <span class="n">listt</span><span class="o">.</span><span class="n">reverse</span><span class="p">(),</span> <span class="nb">print</span><span class="p">(</span><span class="n">listt</span><span class="p">),</span> <span class="n">listt</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">listt</span><span class="p">),</span> <span class="n">listt</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span> <span class="nb">print</span><span class="p">(</span><span class="n">listt</span><span class="p">);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>3 1
-0 1 2.5
-[1, 5, 2, 4]
-[4, 2, 5, 1]
-[1, 2, 4, 5]
-[1, 2, 4, 5, 6, 7, 8]
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dictt</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">42</span><span class="p">:</span> <span class="s1">&#39;la réponse&#39;</span><span class="p">}</span>
-<span class="p">{</span><span class="s2">&quot;dictt[42]&quot;</span><span class="p">:</span> <span class="n">dictt</span><span class="p">[</span><span class="mi">42</span><span class="p">],</span> <span class="s2">&quot;dictt.get(&#39;b&#39;)&quot;</span><span class="p">:</span> <span class="n">dictt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">),</span> <span class="s2">&quot;dictt.items()&quot;</span><span class="p">:</span><span class="n">dictt</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="s2">&quot;dictt.keys()&quot;</span><span class="p">:</span><span class="n">dictt</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> 
- <span class="s2">&quot;dictt.values()&quot;</span><span class="p">:</span><span class="n">dictt</span><span class="o">.</span><span class="n">values</span><span class="p">()},</span> <span class="n">dictt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">42</span><span class="p">),</span> <span class="n">dictt</span><span class="o">.</span><span class="n">popitem</span><span class="p">(),</span> <span class="n">dictt</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}),</span> <span class="n">dictt</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>({&#39;dictt[42]&#39;: &#39;la réponse&#39;,
-  &#34;dictt.get(&#39;b&#39;)&#34;: 3,
-  &#39;dictt.items()&#39;: dict_items([(&#39;a&#39;, 1), (&#39;b&#39;, 2), (&#39;d&#39;, 4)]),
-  &#39;dictt.keys()&#39;: dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;d&#39;]),
-  &#39;dictt.values()&#39;: dict_values([1, 2, 4])},
- &#39;la réponse&#39;,
- (&#39;c&#39;, 6),
- None,
- {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;d&#39;: 4})</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tuplee</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">)</span>  <span class="c1"># inmodifiable, less place than list and faster </span>
-<span class="n">sett</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">}</span>
-<span class="n">tuplee</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sett</span><span class="o">.</span><span class="n">difference</span><span class="p">({</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;pineapple&#39;</span><span class="p">}),</span> <span class="n">sett</span><span class="o">.</span><span class="n">intersection</span><span class="p">({</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;pineapple&#39;</span><span class="p">}),</span> <span class="n">sett</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;pineapple&#39;</span><span class="p">})</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(&#39;banana&#39;,
- {&#39;apple&#39;, &#39;cherry&#39;},
- {&#39;banana&#39;},
- {&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;pineapple&#39;})</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;eee&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;bbb&#39;</span><span class="p">]),</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">[:</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;abcdef&#39;</span><span class="p">)::</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">42</span> <span class="o">//</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">42</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">42</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(&#39;eee bbb&#39;, &#39;a&#39;, &#39;bcdef&#39;, &#39;abcde&#39;, &#39;ae&#39;, &#39;fdb&#39;, (42, 4, 2, 4.2))</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;abc defg hijklm nop qrstu vw xyz&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="s1">&#39;abc defg hijklm nop qrstu vw xyz&#39;</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">)],</span> \
-<span class="s1">&#39;abc defg hijklm nop qrstu vw xyz&#39;</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">15</span><span class="p">][::</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>([&#39;abc&#39;, &#39;defg&#39;, &#39;hijklm&#39;, &#39;nop&#39;, &#39;qrstu&#39;, &#39;vw&#39;, &#39;xyz&#39;], &#39;eghjl&#39;, &#39;eghjl&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># &quot;pass&quot; statement is used as a placeholder for future code</span>
-<span class="k">def</span> <span class="nf">coucou</span><span class="p">():</span>
-    <span class="k">pass</span>
-<span class="n">coucou</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li>Python memory manager (memory manager In CPython) : private heap space in Python that contains all the Python objects and data structures ## pass by reference</li>
-<li>Lambda</li>
-<li>Pickling</li>
-<li>unittest</li>
-<li>generator in Python : written like a regular function, generator is more compact than an iterator due to the fact that <strong>iter</strong>() and next() functions are automatically created in a generator</li>
-<li>yield statement to return data during the function call</li>
-<li><strong> is used for reserved names, _ is used for built-in functions (e.g. if </strong>name<strong> == '</strong>main__' )</li>
-<li>Flask is a micro-framework based on Python to develop web applications</li>
-<li>function zip() can be used to aggregate all the iterable objects of an iterator</li>
-<li>MySQLdb database has to be connected by passing the URL, username, password, and the name of the database. Once the connection is established, a cursor with cursor() can be opened. On an open cursor, the fetch() function can be used to execute queries and retrieve data from the database tables.</li>
-<li>to specify encoding : </li>
-<li>#!/usr/bin/python</li>
-<li># -<em>- coding: <encoding name> -</em>-      OR      # coding: <encoding name>            <encoding name> = ascii , iso-8859-15, latin-1, utf-8 (by default)</li>
-<li>python checker pour vérifier le code : pylint (lancer la commande <code>pylint moncode.py</code> dans un terminal), pep8 (<code>pep8 --first optparse.py</code>, <code>pep8 --show-source --show-pep8 testsuite/E40.py</code>)</li>
-<li>A Python Decorator is a mechanism to wrap a Python function and modify its behavior by adding more functionality to it. We can use @ symbol to call a Python Decorator function. <div class="highlight"><pre><span></span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># bool is a subclass of int</span>
-</pre></div>
-</li>
-<li>“is” is used to check an object against its identity, whereas “==” is used to check the equality of two objects. </li>
-</ul>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="1.-Yield">1. Yield<a class="anchor-link" href="#1.-Yield">&#182;</a></h2>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span> <span class="c1"># Represent Infinite Stream</span>
-
-<span class="k">def</span> <span class="nf">coucou</span><span class="p">(</span><span class="n">maxx</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span> <span class="c1"># on peut juste mettre while True</span>
-        <span class="k">yield</span> <span class="n">i</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">maxx</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">(</span><span class="n">maxx</span><span class="p">)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">coucou</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0
-1
-2
-3
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pipelining Generators</span>
-<span class="k">def</span> <span class="nf">fibonacci_numbers</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
-        <span class="k">yield</span> <span class="n">x</span>
-
-<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">num</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">fibonacci_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">))))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>4895
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="1.-zip()">1. <code>zip()</code><a class="anchor-link" href="#1.-zip()">&#182;</a></h2><p>for generator and list (Range is a generator)</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">PowTwoGen</span><span class="p">(</span><span class="nb">max</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">n</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-        
-<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">PowTwoGen</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="s1">&#39;ABCDE&#39;</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[1, 2, 4, 8, 16, 32, 64, 128]
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(None, [(1, 1, &#39;A&#39;), (2, 2, &#39;B&#39;), (3, 4, &#39;C&#39;), (4, 8, &#39;D&#39;), (5, 16, &#39;E&#39;)])</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="1.-Python-Doc">1. Python Doc<a class="anchor-link" href="#1.-Python-Doc">&#182;</a></h2>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">random_function</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;random_function does nothing</span>
-<span class="sd">    args:</span>
-<span class="sd">    returns bool</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">random_function</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>random_function does nothing
-    args:
-    returns bool
-    
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="1.-Lambda">1. Lambda<a class="anchor-link" href="#1.-Lambda">&#182;</a></h2>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(15, 5)</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])),</span> <span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>([3, 4, 5], [3, 4, 5])</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
-<span class="n">my_lambda</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>4</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Defining a decorator</span>
-<span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[TRACE] func: </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">, args: </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">, kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">wrap</span>
-
-<span class="c1"># Applying decorator to a function</span>
-<span class="nd">@trace</span>
-<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
-
-<span class="c1"># Calling the decorated function</span>
-<span class="n">add_two</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Applying decorator to a lambda</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">trace</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))(</span><span class="mi">3</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[TRACE] func: add_two, args: (3,), kwargs: {}
-[TRACE] func: &lt;lambda&gt;, args: (3,), kwargs: {}
-9
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="#Title">Back to the top.</a></p>
-<hr>
-<h1 id="2.-Design-Patterns-">2. Design Patterns <a class="anchor" id="Intro" /><a class="anchor-link" href="#2.-Design-Patterns-">&#182;</a></h1><p>Design Patterns give some standards solutions to recurrent programming problems. It's like a plan to describe how to build the best solution to a know concepting problem. It will gives you a global architecture for your software, that is easy to reproduce (because each design pattern is well known and documented) and to understand (because it's recurrent).</p>
+<p>Design Patterns give some standards solutions to recurrent programming problems. It's like a plan to describe how to build the best solution to a know concepting problem. It will gives you a global architecture for your software, that is easy to reproduce (because each design pattern is well known and documented) and to understand (because it's recurrent).</p>
 <p>Three types of Design patterns :</p>
 <ul>
 <li>Creational (Factory, Singleton, Builder, Prototype...): describes how to instantiate and configure classes and objects</li>
 <li>Structural (Adapter, Decorator...): describes how to organise classes in a larger structure</li>
 <li>Behavioral (Iterator, Mediator, Observer, Strategy...): describes how to organise objects to create an easy collaboration between them</li>
 </ul>
+<h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h2><ol>
+<li>Creational<ul>
+<li><a href="#Singleton">1.1. Singleton (Creational)</a></li>
+<li><a href="#Factory">1.2. Factory (Creational)</a>    </li>
+<li><a href="#Builder">1.3. Builder (Creational)</a></li>
+</ul>
+</li>
+<li>Behavioral<ul>
+<li><a href="#Strategy">2.1. Strategy (Behavioral)</a></li>
+<li><a href="#Observer">2.2. Observer (Behavioral)</a></li>
+<li><a href="#State">2.3. State (Behavioral)</a> </li>
+</ul>
+</li>
+<li>Structural<ul>
+<li><a href="#Adapter">3.1. Adapter (Structural)</a></li>
+</ul>
+</li>
+</ol>
 
 </div>
 </div>
@@ -14957,7 +14296,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="#Title">Back to the top.</a></p>
 <hr>
-<h2 id="2.1.-Singleton-(Creational)">2.1. Singleton (Creational)<a class="anchor" id="Singleton" /><a class="anchor-link" href="#2.1.-Singleton-(Creational)">&#182;</a></h2><blockquote><p>Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.</p>
+<h1 id="1.-Creational-Patterns">1. Creational Patterns<a class="anchor-link" href="#1.-Creational-Patterns">&#182;</a></h1><h2 id="1.1.-Singleton-(Creational)">1.1. Singleton (Creational)<a class="anchor" id="Singleton" /><a class="anchor-link" href="#1.1.-Singleton-(Creational)">&#182;</a></h2><blockquote><p>Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.</p>
 </blockquote>
 <p><strong>The Problem</strong><br>
 Ensure to have only one class instance. Why ? In general because some other classes need to share a common ressource (database, file, ...) and sometime, a part need to be protected.</p>
@@ -15181,7 +14520,7 @@ So... X and Y are the same object ? True
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="#Title">Back to the top.</a></p>
 <hr>
-<h2 id="2.2.-Factory-(Creational)">2.2. Factory (Creational)<a class="anchor" id="Factory" /><a class="anchor-link" href="#2.2.-Factory-(Creational)">&#182;</a></h2><p>Factory provides an interface to create object in the superclass, but it allows subclasses to alter the type of created object.</p>
+<h2 id="1.2.-Factory-(Creational)">1.2. Factory (Creational)<a class="anchor" id="Factory" /><a class="anchor-link" href="#1.2.-Factory-(Creational)">&#182;</a></h2><p>Factory provides an interface to create object in the superclass, but it allows subclasses to alter the type of created object.</p>
 <p><strong>Problem</strong><br>
 Create some object that are quite same but not exactly, for example : transport by air, by truck or by boat. All of this are transportation and use the function 'transportation' but each time in a little different way.</p>
 <p><strong>Solution</strong><br>
@@ -15345,356 +14684,7 @@ Create an abstract creator which will creates some concrete classes.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="#Title">Back to the top.</a></p>
 <hr>
-<h2 id="2.3.-Strategy-(Behavioral)-">2.3. Strategy (Behavioral) <a class="anchor" id="Strategy" /><a class="anchor-link" href="#2.3.-Strategy-(Behavioral)-">&#182;</a></h2><p><a href="https://sourcemaking.com/design_patterns/strategy">Interesting link, click me !</a></p>
-<p>The strategy pattern allows grouping related algorithms under an abstraction, which allows switching out one algorithm or policy for another without modifying the client. Instead of directly implementing a single algorithm, the code receives runtime instructions specifying which of the group of algorithms to run.</p>
-<p><img src="https://sourcemaking.com/files/v2/content/patterns/Strategy_.png?id=786363dbbdb04e551aa8" alt=""></p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">abc</span>
-
-
-<span class="c1"># Define the interface of interest to clients.</span>
-<span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;    </span>
-<span class="sd">    Maintain a reference to a Strategy object.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span> <span class="o">=</span> <span class="n">strategy</span>
-
-    <span class="k">def</span> <span class="nf">context_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span><span class="o">.</span><span class="n">algorithm_interface</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Declare an interface common to all supported algorithms. </span>
-<span class="k">class</span> <span class="nc">Strategy</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Context uses this interface to call the algorithm defined by a</span>
-<span class="sd">    ConcreteStrategy.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-    <span class="k">def</span> <span class="nf">algorithm_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-
-<span class="k">class</span> <span class="nc">Wolf</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Implement the algorithm using the Strategy interface.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">algorithm_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ahouuuuu&quot;</span><span class="p">)</span>
-
-    
-<span class="k">class</span> <span class="nc">Turtle</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Implement the algorithm using the Strategy interface.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">algorithm_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;aaahhhhh&quot;</span><span class="p">)</span>
-
-    
-<span class="k">class</span> <span class="nc">Goat</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Implement the algorithm using the Strategy interface.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">algorithm_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;beeeeee&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">First context:&quot;</span><span class="p">)</span>
-<span class="n">my_wolf</span> <span class="o">=</span> <span class="n">Wolf</span><span class="p">()</span>
-<span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">my_wolf</span><span class="p">)</span>
-<span class="n">context</span><span class="o">.</span><span class="n">context_interface</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Change the context:&quot;</span><span class="p">)</span>
-<span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">Turtle</span><span class="p">())</span>
-<span class="n">context</span><span class="o">.</span><span class="n">context_interface</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-First context:
-Ahouuuuu
-
-Change the context:
-aaahhhhh
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="#Title">Back to the top.</a></p>
-<hr>
-<h2 id="2.4.-Observer-(Behavioral)-">2.4. Observer (Behavioral) <a class="anchor" id="Observer" /><a class="anchor-link" href="#2.4.-Observer-(Behavioral)-">&#182;</a></h2><p>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updatedautomatically.</p>
-<p><strong>Problem</strong><br>
-A client need to be notified when a specific product is available. Two naive solutions exists :</p>
-<ul>
-<li>Firstly, the client can go many times to the shop, but a lot of the time, it is useless as the product isn't available</li>
-<li>A second naive solution is to notify every clients when a new product is available, but the shop will spam all client with a lot of useless messages
-In both of these cases, we have a problem, in a case, clients needs a lot of ressources to check the shop, in the other case, the shop spend a lot of ressources to notify (spam) all clients.  </li>
-</ul>
-<p><strong>Solution</strong><br>
-Some <em>subscribers</em> will follow (or unfollow) a <em>publisher</em>. The publisher have the list of subscribers and all subscribers can ask to add them or remove them from the list. When a notification arrives to the publisher, it will call the notify function of the list of subscribers.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
-<span class="kn">import</span> <span class="nn">typing</span>
-<span class="kn">import</span> <span class="nn">abc</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="k">class</span> <span class="nc">Subject</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>  <span class="c1"># Publisher interface</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The Subject interface declares a set of methods for managing subscribers.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-    <span class="k">def</span> <span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Attach an observer to the subject.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">pass</span>
-
-    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-    <span class="k">def</span> <span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Detach an observer from the subject.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">pass</span>
-
-    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Notify all observers about an event.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">pass</span>
-    
-    
-<span class="k">class</span> <span class="nc">ConcreteSubjectPublisher</span><span class="p">(</span><span class="n">Subject</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The Subject owns some important state and notifies observers when the state</span>
-<span class="sd">    changes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="c1"># List of subscribers. In real life, the list of subscribers can be stored</span>
-    <span class="c1"># more comprehensively (categorized by event type, etc.).</span>
-    <span class="c1"># Use a set unless a list to prevent adding two times the same observer.</span>
-    <span class="n">_observers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Set</span><span class="p">[</span><span class="n">Observer</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
-    <span class="c1"># Random state</span>
-    <span class="n">_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
-    
-    <span class="c1"># Subscription management methods.</span>
-    <span class="k">def</span> <span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subject: Attached an observer.&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subject: Detached an observer.&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
-        
-    <span class="c1"># Trigger an update and notify each Observer</span>
-    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subject: Notifying observers...&quot;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="p">:</span>
-            <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-       
-    <span class="c1"># Usually, the subscription is just a little part of what the subject does.</span>
-    <span class="k">def</span> <span class="nf">run_some_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># ...</span>
-        <span class="c1"># Do some business</span>
-        <span class="c1"># ...</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subject: State = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="p">))</span>
-        
-        <span class="c1"># Trigger notification</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Observer</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>  <span class="c1"># Subscriber interface</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The Observer interface declares the update method, used by subjects.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Subject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># Receive update from subject.</span>
-        <span class="k">pass</span>
-
-    
-<span class="k">class</span> <span class="nc">ConcreteObserverA</span><span class="p">(</span><span class="n">Observer</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Subject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ConcreteObserverA: Reacted to the event&quot;</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">ConcreteObserverB</span><span class="p">(</span><span class="n">Observer</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Subject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ConcreteObserverB: Reacted to the event&quot;</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">ConcreteObserverC</span><span class="p">(</span><span class="n">Observer</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Subject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ConcreteObserverC: Reacted to the event&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create the Publisher</span>
-<span class="n">subject</span> <span class="o">=</span> <span class="n">ConcreteSubjectPublisher</span><span class="p">()</span>
-
-<span class="c1"># Create and add some observer</span>
-<span class="n">observer_a</span> <span class="o">=</span> <span class="n">ConcreteObserverA</span><span class="p">()</span>
-<span class="n">subject</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer_a</span><span class="p">)</span>
-
-<span class="n">observer_b</span> <span class="o">=</span> <span class="n">ConcreteObserverB</span><span class="p">()</span>
-<span class="n">subject</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer_b</span><span class="p">)</span>
-
-<span class="n">observer_c</span> <span class="o">=</span> <span class="n">ConcreteObserverC</span><span class="p">()</span>
-<span class="n">subject</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer_c</span><span class="p">)</span>
- 
-<span class="c1"># Run some logics</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">subject</span><span class="o">.</span><span class="n">run_some_logic</span><span class="p">()</span>
-
-<span class="n">subject</span><span class="o">.</span><span class="n">detach</span><span class="p">(</span><span class="n">observer_a</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">subject</span><span class="o">.</span><span class="n">run_some_logic</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Subject: Attached an observer.
-Subject: Attached an observer.
-Subject: Attached an observer.
-Subject: State = [2]
-Subject: Notifying observers...
-ConcreteObserverA: Reacted to the event
-ConcreteObserverB: Reacted to the event
-ConcreteObserverC: Reacted to the event
-Subject: State = [1]
-Subject: Notifying observers...
-ConcreteObserverA: Reacted to the event
-ConcreteObserverC: Reacted to the event
-Subject: State = [0]
-Subject: Notifying observers...
-ConcreteObserverA: Reacted to the event
-ConcreteObserverB: Reacted to the event
-ConcreteObserverC: Reacted to the event
-Subject: Detached an observer.
-Subject: State = [1]
-Subject: Notifying observers...
-ConcreteObserverC: Reacted to the event
-Subject: State = [4]
-Subject: Notifying observers...
-ConcreteObserverB: Reacted to the event
-Subject: State = [1]
-Subject: Notifying observers...
-ConcreteObserverC: Reacted to the event
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="#Title">Back to the top.</a></p>
-<hr>
-<h2 id="2.5.-Builder-(Creational)-">2.5. Builder (Creational) <a class="anchor" id="Builder" /><a class="anchor-link" href="#2.5.-Builder-(Creational)-">&#182;</a></h2><p>Separate the construction of a complex object from its representation so that the same construction process can create different representations. It's like a factory but for more complex objects.</p>
+<h2 id="1.3..-Builder-(Creational)-">1.3.. Builder (Creational) <a class="anchor" id="Builder" /><a class="anchor-link" href="#1.3..-Builder-(Creational)-">&#182;</a></h2><p>Separate the construction of a complex object from its representation so that the same construction process can create different representations. It's like a factory but for more complex objects.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15916,21 +14906,361 @@ Product parts: PartA1, PartB1</pre>
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create the Publisher</span>
+<span class="n">subject</span> <span class="o">=</span> <span class="n">ConcreteSubjectPublisher</span><span class="p">()</span>
+
+<span class="c1"># Create and add some observer</span>
+<span class="n">observer_a</span> <span class="o">=</span> <span class="n">ConcreteObserverA</span><span class="p">()</span>
+<span class="n">subject</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer_a</span><span class="p">)</span>
+
+<span class="n">observer_b</span> <span class="o">=</span> <span class="n">ConcreteObserverB</span><span class="p">()</span>
+<span class="n">subject</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer_b</span><span class="p">)</span>
+
+<span class="n">observer_c</span> <span class="o">=</span> <span class="n">ConcreteObserverC</span><span class="p">()</span>
+<span class="n">subject</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">observer_c</span><span class="p">)</span>
+ 
+<span class="c1"># Run some logics</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">subject</span><span class="o">.</span><span class="n">run_some_logic</span><span class="p">()</span>
+
+<span class="n">subject</span><span class="o">.</span><span class="n">detach</span><span class="p">(</span><span class="n">observer_a</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">subject</span><span class="o">.</span><span class="n">run_some_logic</span><span class="p">()</span>
+</pre></div>
+
+     </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="#Title">Back to the top.</a></p>
-<hr>
-<h2 id="2.6.-Adapter-(Structural)-">2.6. Adapter (Structural) <a class="anchor" id="Adapter" /><a class="anchor-link" href="#2.6.-Adapter-(Structural)-">&#182;</a></h2><p>(<a href="https://refactoring.guru/fr/design-patterns/adapter">A good source !</a>)</p>
-<p>Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.</p>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Subject: Attached an observer.
+Subject: Attached an observer.
+Subject: Attached an observer.
+Subject: State = [2]
+Subject: Notifying observers...
+ConcreteObserverA: Reacted to the event
+ConcreteObserverB: Reacted to the event
+ConcreteObserverC: Reacted to the event
+Subject: State = [1]
+Subject: Notifying observers...
+ConcreteObserverA: Reacted to the event
+ConcreteObserverC: Reacted to the event
+Subject: State = [0]
+Subject: Notifying observers...
+ConcreteObserverA: Reacted to the event
+ConcreteObserverB: Reacted to the event
+ConcreteObserverC: Reacted to the event
+Subject: Detached an observer.
+Subject: State = [1]
+Subject: Notifying observers...
+ConcreteObserverC: Reacted to the event
+Subject: State = [4]
+Subject: Notifying observers...
+ConcreteObserverB: Reacted to the event
+Subject: State = [1]
+Subject: Notifying observers...
+ConcreteObserverC: Reacted to the event
+</pre>
+</div>
+</div>
 
 </div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="#Title">Back to the top.</a></p>
 <hr>
-<h2 id="2.7.-State-(Behavioral)-">2.7. State (Behavioral) <a class="anchor" id="State" /><a class="anchor-link" href="#2.7.-State-(Behavioral)-">&#182;</a></h2><p>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</p>
+<h1 id="2.-Behavioral-Patterns">2. Behavioral Patterns<a class="anchor-link" href="#2.-Behavioral-Patterns">&#182;</a></h1><h2 id="2.1.-Strategy-(Behavioral)-">2.1. Strategy (Behavioral) <a class="anchor" id="Strategy" /><a class="anchor-link" href="#2.1.-Strategy-(Behavioral)-">&#182;</a></h2><p><a href="https://sourcemaking.com/design_patterns/strategy">Interesting link, click me !</a></p>
+<p>The strategy pattern allows grouping related algorithms under an abstraction, which allows switching out one algorithm or policy for another without modifying the client. Instead of directly implementing a single algorithm, the code receives runtime instructions specifying which of the group of algorithms to run.</p>
+<p><img src="https://sourcemaking.com/files/v2/content/patterns/Strategy_.png?id=786363dbbdb04e551aa8" alt=""></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">abc</span>
+
+
+<span class="c1"># Define the interface of interest to clients.</span>
+<span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;    </span>
+<span class="sd">    Maintain a reference to a Strategy object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span> <span class="o">=</span> <span class="n">strategy</span>
+
+    <span class="k">def</span> <span class="nf">context_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span><span class="o">.</span><span class="n">algorithm_interface</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Declare an interface common to all supported algorithms. </span>
+<span class="k">class</span> <span class="nc">Strategy</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Context uses this interface to call the algorithm defined by a</span>
+<span class="sd">    ConcreteStrategy.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">algorithm_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">Wolf</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implement the algorithm using the Strategy interface.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">algorithm_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ahouuuuu&quot;</span><span class="p">)</span>
+
+    
+<span class="k">class</span> <span class="nc">Turtle</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implement the algorithm using the Strategy interface.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">algorithm_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;aaahhhhh&quot;</span><span class="p">)</span>
+
+    
+<span class="k">class</span> <span class="nc">Goat</span><span class="p">(</span><span class="n">Strategy</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implement the algorithm using the Strategy interface.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">algorithm_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;beeeeee&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">First context:&quot;</span><span class="p">)</span>
+<span class="n">my_wolf</span> <span class="o">=</span> <span class="n">Wolf</span><span class="p">()</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">my_wolf</span><span class="p">)</span>
+<span class="n">context</span><span class="o">.</span><span class="n">context_interface</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Change the context:&quot;</span><span class="p">)</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">Turtle</span><span class="p">())</span>
+<span class="n">context</span><span class="o">.</span><span class="n">context_interface</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>
+First context:
+Ahouuuuu
+
+Change the context:
+aaahhhhh
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a href="#Title">Back to the top.</a></p>
+<hr>
+<h2 id="2.2.-Observer-(Behavioral)-">2.2. Observer (Behavioral) <a class="anchor" id="Observer" /><a class="anchor-link" href="#2.2.-Observer-(Behavioral)-">&#182;</a></h2><p>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updatedautomatically.</p>
+<p><strong>Problem</strong><br>
+A client need to be notified when a specific product is available. Two naive solutions exists :</p>
+<ul>
+<li>Firstly, the client can go many times to the shop, but a lot of the time, it is useless as the product isn't available</li>
+<li>A second naive solution is to notify every clients when a new product is available, but the shop will spam all client with a lot of useless messages
+In both of these cases, we have a problem, in a case, clients needs a lot of ressources to check the shop, in the other case, the shop spend a lot of ressources to notify (spam) all clients.  </li>
+</ul>
+<p><strong>Solution</strong><br>
+Some <em>subscribers</em> will follow (or unfollow) a <em>publisher</em>. The publisher have the list of subscribers and all subscribers can ask to add them or remove them from the list. When a notification arrives to the publisher, it will call the notify function of the list of subscribers.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">import</span> <span class="nn">typing</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">Subject</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>  <span class="c1"># Publisher interface</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Subject interface declares a set of methods for managing subscribers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attach an observer to the subject.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Detach an observer from the subject.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Notify all observers about an event.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+    
+    
+<span class="k">class</span> <span class="nc">ConcreteSubjectPublisher</span><span class="p">(</span><span class="n">Subject</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Subject owns some important state and notifies observers when the state</span>
+<span class="sd">    changes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># List of subscribers. In real life, the list of subscribers can be stored</span>
+    <span class="c1"># more comprehensively (categorized by event type, etc.).</span>
+    <span class="c1"># Use a set unless a list to prevent adding two times the same observer.</span>
+    <span class="n">_observers</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Set</span><span class="p">[</span><span class="n">Observer</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
+    <span class="c1"># Random state</span>
+    <span class="n">_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="c1"># Subscription management methods.</span>
+    <span class="k">def</span> <span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subject: Attached an observer.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subject: Detached an observer.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+        
+    <span class="c1"># Trigger an update and notify each Observer</span>
+    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subject: Notifying observers...&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="p">:</span>
+            <span class="n">observer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+       
+    <span class="c1"># Usually, the subscription is just a little part of what the subject does.</span>
+    <span class="k">def</span> <span class="nf">run_some_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># ...</span>
+        <span class="c1"># Do some business</span>
+        <span class="c1"># ...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Subject: State = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="p">))</span>
+        
+        <span class="c1"># Trigger notification</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Observer</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>  <span class="c1"># Subscriber interface</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Observer interface declares the update method, used by subjects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Subject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Receive update from subject.</span>
+        <span class="k">pass</span>
+
+    
+<span class="k">class</span> <span class="nc">ConcreteObserverA</span><span class="p">(</span><span class="n">Observer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Subject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ConcreteObserverA: Reacted to the event&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ConcreteObserverB</span><span class="p">(</span><span class="n">Observer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Subject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ConcreteObserverB: Reacted to the event&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ConcreteObserverC</span><span class="p">(</span><span class="n">Observer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="n">Subject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">subject</span><span class="o">.</span><span class="n">_state</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ConcreteObserverC: Reacted to the event&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a href="#Title">Back to the top.</a></p>
+<hr>
+<h2 id="2.3.-State-(Behavioral)-">2.3. State (Behavioral) <a class="anchor" id="State" /><a class="anchor-link" href="#2.3.-State-(Behavioral)-">&#182;</a></h2><p>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</p>
 <blockquote><p>An object-oriented state machine<br>
 wrapper + polymorphic wrappee + collaboration</p>
 </blockquote>
@@ -16206,183 +15536,10 @@ A request bhange state to B
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="#Title">Back to the top.</a></p>
 <hr>
+<h1 id="3.-Structural">3. Structural<a class="anchor-link" href="#3.-Structural">&#182;</a></h1><h2 id="3.6.-Adapter-(Structural)-">3.6. Adapter (Structural) <a class="anchor" id="Adapter" /><a class="anchor-link" href="#3.6.-Adapter-(Structural)-">&#182;</a></h2><p>(<a href="https://refactoring.guru/fr/design-patterns/adapter">A good source !</a>)</p>
+<p>Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.</p>
 
 </div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="3.-Testing-Your-Code--">3. Testing Your Code  <a class="anchor" id="Test" /><a class="anchor-link" href="#3.-Testing-Your-Code--">&#182;</a></h1><p>Testing your code is very important.</p>
-<p>Getting used to writing testing code and running this code in parallel is now considered a good habit. Used wisely, this method helps to define your code’s intent more precisely and have a more decoupled architecture.</p>
-<p>Some general rules of testing:</p>
-<ul>
-<li>A testing unit should focus on one tiny bit of functionality and prove it correct.</li>
-<li>Each test unit must be fully independent. Each test must be able to run alone, and also within the test suite, regardless of the order that they are called. The implication of this rule is that each test must be loaded with a fresh dataset and may have to do some cleanup afterwards. This is usually handled by setUp() and tearDown() methods.</li>
-<li>Try hard to make tests that run fast. If one single test needs more than a few milliseconds to run, development will be slowed down or the tests will not be run as often as is desirable. In some cases, tests can’t be fast because they need a complex data structure to work on, and this data structure must be loaded every time the test runs. Keep these heavier tests in a separate test suite that is run by some scheduled task, and run all other tests as often as needed.</li>
-<li>Learn your tools and learn how to run a single test or a test case. Then, when developing a function inside a module, run this function’s tests frequently, ideally automatically when you save the code.</li>
-<li>Always run the full test suite before a coding session, and run it again after. This will give you more confidence that you did not break anything in the rest of the code.</li>
-<li>It is a good idea to implement a hook that runs all tests before pushing code to a shared repository.</li>
-<li>If you are in the middle of a development session and have to interrupt your work, it is a good idea to write a broken unit test about what you want to develop next. When coming back to work, you will have a pointer to where you were and get back on track faster.</li>
-<li>The first step when you are debugging your code is to write a new test pinpointing the bug. While it is not always possible to do, those bug catching tests are among the most valuable pieces of code in your project.</li>
-<li>Use long and descriptive names for testing functions. The style guide here is slightly different than that of running code, where short names are often preferred. The reason is testing functions are never called explicitly. square() or even sqr() is ok in running code, but in testing code you would have names such as test_square_of_number_2(), test_square_negative_number(). These function names are displayed when a test fails, and should be as descriptive as possible.</li>
-<li>When something goes wrong or has to be changed, and if your code has a good set of tests, you or other maintainers will rely largely on the testing suite to fix the problem or modify a given behavior. Therefore the testing code will be read as much as or even more than the running code. A unit test whose purpose is unclear is not very helpful in this case.</li>
-<li>Another use of the testing code is as an introduction to new developers. When someone will have to work on the code base, running and reading the related testing code is often the best thing that they can do to start. They will or should discover the hot spots, where most difficulties arise, and the corner cases. If they have to add some functionality, the first step should be to add a test to ensure that the new functionality is not already a working path that has not been plugged into the interface.</li>
-</ul>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># With Unittest :</span>
-
-<span class="kn">import</span> <span class="nn">unittest</span>
-
-<span class="k">def</span> <span class="nf">fct</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-
-<span class="k">class</span> <span class="nc">MyTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Run all tests :&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Run all test is finished !&quot;</span><span class="p">)</span>
-        
-    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; - test fct()&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">fct</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="n">MyTest</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Run all tests :
- - test fct()
-
-Run all test is finished !
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="c1"># With Doctest</span>
-
-<span class="kn">import</span> <span class="nn">doctest</span>
-
-<span class="k">def</span> <span class="nf">int_square_fct</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return the square of x.</span>
-
-<span class="sd">    &gt;&gt;&gt; int_square_fct(2)</span>
-<span class="sd">    4</span>
-<span class="sd">    &gt;&gt;&gt; int_square_fct(-2)</span>
-<span class="sd">    4</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-
-<span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">doctest</span>
-
-<span class="n">addtwo</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="n">addtwo</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Add 2 to a number.</span>
-<span class="s2">    &gt;&gt;&gt; addtwo(2)</span>
-<span class="s2">    4</span>
-<span class="s2">    &gt;&gt;&gt; addtwo(2.2)</span>
-<span class="s2">    4.2</span>
-<span class="s2">    &gt;&gt;&gt; addtwo(3) # Should fail</span>
-<span class="s2">    6</span>
-<span class="s2">    &quot;&quot;&quot;</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Trying:
-    addtwo(2)
-Expecting:
-    4
-ok
-Trying:
-    addtwo(2.2)
-Expecting:
-    4.2
-ok
-Trying:
-    addtwo(3) # Should fail
-Expecting:
-    6
-**********************************************************************
-File &#34;__main__&#34;, line 9, in __main__.addtwo
-Failed example:
-    addtwo(3) # Should fail
-Expected:
-    6
-Got:
-    5
-1 items had no tests:
-    __main__
-**********************************************************************
-1 items had failures:
-   1 of   3 in __main__.addtwo
-3 tests in 2 items.
-2 passed and 1 failed.
-***Test Failed*** 1 failures.
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">

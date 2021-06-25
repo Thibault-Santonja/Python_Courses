@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>12_Python_Advanced</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>43_DataScience_Statistics</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14259,40 +14259,44 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="G&#233;n&#233;ralit&#233;s-et-&#233;l&#233;ments-de-Python-avanc&#233;s">G&#233;n&#233;ralit&#233;s et &#233;l&#233;ments de Python avanc&#233;s<a class="anchor-link" href="#G&#233;n&#233;ralit&#233;s-et-&#233;l&#233;ments-de-Python-avanc&#233;s">&#182;</a></h1><p>Si vous êtes ici, c'est que vous maitrisez déjà la programmation Python, mais qu'il vous en faut plus !</p>
-<p><strong>Sommaire</strong></p>
+<p><img src="https://puu.sh/HLHgF/324c7fedc3.png" alt=""></p>
+<p>Most important basis :</p>
 <ul>
-<li><a href="#chap1PyAdv">1. Variables spéciales</a></li>
-<li><a href="#chap3PyAdv">3. Decorateur</a></li>
-<li><a href="#chap4PyAdv">4. Yield</a></li>
+<li>[x] Python<ul>
+<li>[x] Data manipulation using Pandas &amp; Numpy</li>
+<li>[x] Data visualization using Matplotlib</li>
+</ul>
+</li>
+<li>[x] SQL<ul>
+<li>[x] SQL &amp; Pandas &amp; SQLite (Good course : <a href="https://medium.com/analytics-vidhya/programming-with-databases-in-python-using-sqlite-4cecbef51ab9">https://medium.com/analytics-vidhya/programming-with-databases-in-python-using-sqlite-4cecbef51ab9</a>)</li>
+<li>[x] platforms like Mode Analytics and Databricks to easily work with Python and SQL.</li>
+</ul>
+</li>
+<li>Statistics basis <ul>
+<li>[x] Learn : Sampling, frequency distributions, Mean, Median, Mode, Measure of variability, Probability basics, significant testing, standard deviation, z-scores, confidence intervals, and hypothesis testing (including A/B testing)</li>
+<li>Good Handbook (especially first four chapters) : <a href="https://www.amazon.com/Practical-Statistics-Data-Scientists-Essential/dp/9352135652">https://www.amazon.com/Practical-Statistics-Data-Scientists-Essential/dp/9352135652</a></li>
+<li>Learn <em>StatsModels</em> Python Library + good video course : <a href="https://www.youtube.com/watch?v=yaSgoGLXKOg">https://www.youtube.com/watch?v=yaSgoGLXKOg</a></li>
+</ul>
+</li>
+<li>Machine Learning using Scikit-Learn (Good video course by Andrew Ng : <a href="https://www.coursera.org/learn/machine-learning">https://www.coursera.org/learn/machine-learning</a> + Good Handbook and exercise : <a href="https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1491962291">https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1491962291</a> )</li>
+</ul>
+<p>Next :</p>
+<ul>
+<li>big data technologies like Spark and Hadoop</li>
+<li>Google Analytics </li>
+<li>Python data viz using <strong>Seaborn</strong>, Bokeh, Pygal</li>
 </ul>
 
 </div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="#top">Back to top</a></p>
-<hr>
-<h2 id="1.-Variables-sp&#233;ciales-">1. Variables sp&#233;ciales <a id="chap1PyAdv" /><a class="anchor-link" href="#1.-Variables-sp&#233;ciales-">&#182;</a></h2><p>Il existe en Python des variables spéciales qui commencent et finissent par deux <code>_</code>. On peut les trouver quand on réalise :</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">do_something</span><span class="p">()</span>
-</pre></div>
-<p>Ce sont des variables que Python auto gère et qui peuvent s'avérer utiles (notamment quand on veut savoir si on est dans le main file ou non, ou si l'on veut récupérer la doc d'une fonction !)</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">random_function</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;random_function does nothing</span>
-<span class="sd">    args:</span>
-<span class="sd">    returns bool</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">random_function</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 </pre></div>
 
      </div>
@@ -14300,75 +14304,25 @@ a.anchor-link {
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>random_function does nothing
-    args:
-    returns bool
-    
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="#top">Back to top</a></p>
-<hr>
-<h2 id="3.-D&#233;corateurs-">3. D&#233;corateurs <a id="chap3PyAdv" /><a class="anchor-link" href="#3.-D&#233;corateurs-">&#182;</a></h2>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Defining a decorator</span>
-<span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[TRACE] func: </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">, args: </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">, kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate artificial data</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Output shape</span>
+<span class="n">loc</span> <span class="o">=</span> <span class="mi">50</span>    <span class="c1"># Mean (“centre”) of the distribution</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">5</span>   <span class="c1"># Standard deviation (spread or “width”) of the distribution. Must be non-negative.</span>
 
-    <span class="k">return</span> <span class="n">wrap</span>
 
-<span class="c1"># Applying decorator to a function</span>
-<span class="nd">@trace</span>
-<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 
-<span class="c1"># Calling the decorated function</span>
-<span class="n">add_two</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># Y = np.random.randint(10, size=100)</span>
+<span class="c1"># Y = np.random.binomial(n=100, p=.5, size=100)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
-<span class="c1"># Applying decorator to a lambda</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;In main : &#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">trace</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))(</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
 </pre></div>
 
      </div>
@@ -14384,15 +14338,38 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[54]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[TRACE] func: add_two, args: (3,), kwargs: {}
-[TRACE] func: &lt;lambda&gt;, args: (9,), kwargs: {}
-In main :  81
-</pre>
-</div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(array([55.75608173, 52.81238965, 55.62111732, 49.89528542, 56.05333946,
+        41.22825435, 55.48902971, 48.39043528, 51.42119142, 49.98761722,
+        50.37643254, 59.28903873, 48.06409926, 51.71440901, 47.47399008,
+        44.98892566, 50.89196949, 54.29815175, 52.66891552, 48.14687677,
+        48.85774544, 44.7906864 , 57.52047777, 48.30737622, 49.52319116,
+        45.86263123, 46.38149512, 38.33135014, 48.22734687, 53.02997041,
+        46.82664881, 56.74863347, 36.50340832, 57.77302102, 59.83695815,
+        58.66702393, 40.17525716, 46.75294991, 45.40265986, 60.06444145,
+        44.76302813, 52.85506209, 58.24064082, 54.23672568, 48.372648  ,
+        50.39410706, 55.4292295 , 49.05461773, 55.17942781, 53.98496247,
+        45.27885551, 55.84814236, 56.49557576, 52.77333886, 48.73193272,
+        48.8257024 , 49.0600586 , 39.64540498, 58.37394186, 53.60776   ,
+        44.99844929, 51.42698252, 49.73851062, 41.21045468, 43.46278467,
+        47.10338127, 46.59610411, 51.55468165, 49.79632054, 48.63102467,
+        40.72154258, 44.63665191, 51.46848094, 50.52421782, 48.97616849,
+        50.75697162, 50.2559305 , 45.91111679, 52.61437799, 54.00169745,
+        45.47815227, 41.502261  , 44.25342906, 41.69792207, 45.89050187,
+        51.45690452, 49.06184611, 54.57222172, 46.81239719, 51.77984437,
+        47.09997212, 53.04287524, 54.46955623, 45.30606873, 53.29892428,
+        56.40239392, 47.01915711, 44.6138216 , 48.51625342, 44.39357566]),
+ array([45, 45, 55, 47, 43, 46, 56, 52, 49, 44, 51, 45, 54, 49, 49, 45, 54,
+        47, 47, 48, 56, 55, 50, 50, 53, 51, 46, 53, 46, 51, 55, 54, 52, 47,
+        57, 41, 49, 58, 54, 46, 44, 56, 52, 54, 52, 47, 55, 44, 53, 47, 58,
+        43, 41, 47, 53, 46, 55, 42, 46, 47, 46, 49, 40, 41, 58, 52, 49, 52,
+        50, 53, 45, 46, 47, 47, 53, 51, 47, 52, 57, 52, 43, 48, 56, 50, 45,
+        55, 54, 52, 48, 49, 56, 45, 50, 51, 38, 48, 46, 52, 53, 49]))</pre>
 </div>
 
 </div>
@@ -14400,34 +14377,16 @@ In main :  81
 </div>
 
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><a href="#top">Back to top</a></p>
-<hr>
-<h2 id="4.-Yield-">4. Yield <a id="chap4PyAdv" /><a class="anchor-link" href="#4.-Yield-">&#182;</a></h2>
-</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span> <span class="c1"># Represent Infinite Stream</span>
-
-<span class="k">def</span> <span class="nf">coucou</span><span class="p">(</span><span class="n">maxx</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span> <span class="c1"># on peut juste mettre while True</span>
-        <span class="k">yield</span> <span class="n">i</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">maxx</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">(</span><span class="n">maxx</span><span class="p">)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">coucou</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Mean</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X mean : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Y mean : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Y</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 
      </div>
@@ -14447,10 +14406,8 @@ In main :  81
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0
-1
-2
-3
+<pre>X mean : 0.975
+Y mean : 50.000
 </pre>
 </div>
 </div>
@@ -14465,18 +14422,9 @@ In main :  81
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pipelining Generators</span>
-<span class="k">def</span> <span class="nf">fibonacci_numbers</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
-        <span class="k">yield</span> <span class="n">x</span>
-
-<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">num</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">fibonacci_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">))))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Median</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X median : </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Y median : </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14496,7 +14444,8 @@ In main :  81
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>4895
+<pre>X median : 0.984901
+Y median : 49
 </pre>
 </div>
 </div>
@@ -14511,13 +14460,254 @@ In main :  81
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">PowTwoGen</span><span class="p">(</span><span class="nb">max</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">n</span>
-        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sampling</span>
+<span class="c1"># We can use numpy random.choice() or take a value from the array each n values</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(array([1.04442572, 1.06060007, 0.81992574, 1.25394092, 0.91576459,
+        0.8708394 , 0.68022311, 0.51832   , 0.9841502 , 0.65597501]),
+ array([64, 44, 55, 55, 37, 45, 45, 44, 40, 43]))</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># frequency distributions</span>
+<span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;counts&#39;</span><span class="p">:</span> <span class="n">counts</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">unique</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>counts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>22</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># frequency distributions on continous</span>
+<span class="k">def</span> <span class="nf">continous_frequency_distributions</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">parts</span><span class="p">):</span>
+    <span class="n">min_val</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">max_val</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">min_val</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">max_val</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="p">(</span><span class="n">max_val</span><span class="o">-</span><span class="n">min_val</span><span class="p">)</span><span class="o">/</span><span class="n">parts</span><span class="p">)</span>
+    <span class="n">ranges</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">parts</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">ranges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; to &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">counts</span><span class="o">.</span><span class="n">append</span><span class="p">(((</span><span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">array</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">array</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
         
-<span class="nb">print</span><span class="p">([</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">PowTwoGen</span><span class="p">(</span><span class="mi">8</span><span class="p">)]),</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">PowTwoGen</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="s1">&#39;ABCDE&#39;</span><span class="p">))</span>
+    <span class="n">ranges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; and more&#39;</span><span class="p">)</span>
+    <span class="n">counts</span><span class="o">.</span><span class="n">append</span><span class="p">(((</span><span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">array</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">max_val</span> <span class="o">&gt;=</span> <span class="n">array</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;counts&#39;</span><span class="p">:</span> <span class="n">counts</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">ranges</span><span class="p">)</span>
+
+
+<span class="n">continous_frequency_distributions</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>counts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.518 to 0.609</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>0.609 to 0.699</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>0.699 to 0.790</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>0.790 to 0.880</th>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>0.880 to 0.970</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>0.970 to 1.061</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>1.061 to 1.151</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>1.151 to 1.241</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1.241 to 1.332</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1.332 and more</th>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Mode</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For discrete :&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">For continous :&#39;</span><span class="p">)</span>
+<span class="n">distrib</span> <span class="o">=</span> <span class="n">continous_frequency_distributions</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">distrib</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">distrib</span><span class="o">.</span><span class="n">counts</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()])</span>
 </pre></div>
 
      </div>
@@ -14537,23 +14727,209 @@ In main :  81
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[1, 2, 4, 8, 16, 32, 64, 128]
+<pre>For discrete :
+ModeResult(mode=array([47]), count=array([7]))
+
+For continous :
+counts    20
+Name: 0.970 to 1.061, dtype: int64
 </pre>
 </div>
 </div>
 
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Measure of variability</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X variance : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Y variance : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>X variance : 0.037
+Y variance : 109.340
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># standard deviation</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X deviation : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>  <span class="c1"># or print(&#39;X deviation : %.3f&#39; % np.var(X)**.5)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Y deviation : </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>  <span class="c1"># or print(&#39;Y deviation : %.3f&#39; % np.var(Y)**.5)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>X deviation : 0.191
+Y deviation : 10.457
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># z-scores</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(None, [(1, 1, &#39;A&#39;), (2, 2, &#39;B&#39;), (3, 4, &#39;C&#39;), (4, 8, &#39;D&#39;), (5, 16, &#39;E&#39;)])</pre>
+<pre>(array([ 0.23280414,  1.33243607,  0.49577916, -0.92418258, -1.17824276,
+         1.10513   , -1.69266842, -0.30751556,  0.0461295 , -0.94610462,
+        -0.99115016, -1.77078796,  1.57808688, -0.66137017,  0.63121064,
+         0.9188453 , -1.83580299, -0.74877729, -0.45030274, -1.35585434,
+        -0.09005113, -1.53596331,  0.95344844,  0.62995115,  0.84093276,
+         0.87426684,  0.69098409, -1.50902886, -2.38856301, -0.55683417,
+        -0.39340673,  1.11984537,  0.91250666,  0.82242233,  0.09994879,
+         1.05416861, -0.542974  ,  0.31988675,  0.74630856,  0.37828739,
+        -0.09417247,  0.3923616 , -0.31129244,  0.30131909,  2.33593489,
+         1.8784122 , -1.66909992,  0.0081877 , -0.49785344,  0.4303887 ,
+         0.65002867,  1.17968167, -0.0197411 , -0.05186291, -0.81220052,
+        -1.12518691,  1.67598644, -0.98618553,  0.81623257, -0.54609691,
+         0.37065767, -0.49465347, -1.2761802 , -0.96392332, -1.54236561,
+         1.94918211,  1.95749146,  1.45620866,  1.18931551, -0.65827009,
+         0.43133644,  0.13730306,  0.16126291,  0.95689987,  1.00773505,
+        -0.13160067,  0.13018733, -0.68409475,  0.84564412, -1.93788481,
+         0.05398133,  0.07393025,  0.01022361,  0.86239296, -0.68561192,
+        -0.88482714, -0.22483262, -0.94764871,  0.93515259, -0.35630488,
+        -1.04949199,  0.8242705 , -1.63801371, -0.75766183,  0.36116352,
+        -0.27920842,  0.44569984,  0.60461906,  1.23740803, -0.94813176]),
+ array([ 1.24323669,  1.24323669,  0.        ,  0.95633591, -0.47816796,
+         0.66943514,  0.95633591,  0.        , -0.47816796, -1.91267183,
+        -0.66943514,  0.76506873, -0.66943514,  1.24323669, -0.57380155,
+        -1.62577105, -0.28690077,  0.38253437, -0.28690077, -0.57380155,
+        -0.86070232, -1.72140464, -0.86070232, -1.62577105,  0.28690077,
+         0.        , -1.91267183, -0.66943514, -0.28690077,  0.        ,
+         0.09563359,  2.00830542,  0.28690077,  2.10393901, -1.1476031 ,
+         1.0519695 ,  0.47816796, -0.86070232,  0.47816796,  0.57380155,
+         0.66943514,  1.1476031 , -0.47816796,  0.        , -0.19126718,
+         0.57380155, -2.67774056,  0.28690077,  0.47816796, -1.24323669,
+         2.48647337,  1.72140464, -1.0519695 ,  0.19126718,  0.76506873,
+        -0.76506873,  0.57380155, -1.0519695 ,  1.24323669,  0.38253437,
+        -0.28690077,  0.47816796, -0.66943514,  0.95633591,  1.62577105,
+        -0.95633591, -0.95633591,  0.28690077, -0.09563359, -0.28690077,
+        -0.09563359, -0.76506873, -1.0519695 , -0.38253437, -0.28690077,
+        -0.19126718,  2.29520619,  1.33887028, -0.57380155, -0.57380155,
+        -0.28690077,  0.09563359,  1.0519695 ,  1.43450387, -0.38253437,
+        -1.62577105,  0.66943514,  1.0519695 ,  0.86070232, -1.81703824,
+         0.57380155, -1.62577105, -0.66943514, -0.09563359, -0.47816796,
+         0.28690077,  0.66943514, -0.57380155,  1.24323669, -0.57380155]))</pre>
 </div>
 
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[57]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># confidence intervals</span>
+
+<span class="c1">#create 95% confidence interval for population mean weight</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">))</span>
+
+<span class="c1">#create 99% confidence interval for same sample</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>(40.080142407751836, 59.919857592248164)
+(36.870547397068336, 63.129452602931664)
+</pre>
+</div>
 </div>
 
 </div>
@@ -14563,10 +14939,19 @@ In main :  81
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+
+
+<span class="k">def</span> <span class="nf">mean_confidence_interval</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">se</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sem</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">se</span> <span class="o">*</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">confidence</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="n">h</span>
 </pre></div>
 
      </div>
@@ -14580,7 +14965,12 @@ In main :  81
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Probability basics</span>
+
+<span class="c1"># significant testing</span>
+
+<span class="c1"># hypothesis testing (including A/B testing)</span>
+<span class="c1"># https://towardsdatascience.com/the-math-behind-a-b-testing-with-example-code-part-1-of-2-7be752e1d06f</span>
 </pre></div>
 
      </div>
@@ -14588,13 +14978,50 @@ In main :  81
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>à voir :</p>
+<ul>
+<li>base formation deep learning <a href="https://youtu.be/XUFLq6dKQok">https://youtu.be/XUFLq6dKQok</a></li>
+<li><a href="https://databricks.com/blog/2021/05/27/introducing-databricks-machine-learning-a-data-native-collaborative-full-ml-lifecycle-solution.html">https://databricks.com/blog/2021/05/27/introducing-databricks-machine-learning-a-data-native-collaborative-full-ml-lifecycle-solution.html</a></li>
+<li><a href="https://data-flair.training/blogs/python-descriptive-statistics/">https://data-flair.training/blogs/python-descriptive-statistics/</a></li>
+<li>12 data science apps <a href="https://www.youtube.com/watch?v=JwSS70SZdyM">https://www.youtube.com/watch?v=JwSS70SZdyM</a></li>
+<li>question data science interview : <a href="https://www.youtube.com/watch?v=4Z6lxfglvUU">https://www.youtube.com/watch?v=4Z6lxfglvUU</a></li>
+</ul>
+<p>Google Earth Engine :</p>
+<ul>
+<li><a href="https://earthengine.google.com/">https://earthengine.google.com/</a></li>
+<li><a href="https://towardsdatascience.com/tagged/google-earth-engine">https://towardsdatascience.com/tagged/google-earth-engine</a></li>
+<li><a href="https://www.youtube.com/watch?v=I-wFYm4Hnhg">https://www.youtube.com/watch?v=I-wFYm4Hnhg</a></li>
+</ul>
+<p>ESA :</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Phi_Lab">Φ-Lab</a></li>
+<li>Patrick Griffiths 3rd degree connection 3rd --- EO Data Engineer at European Space Agency - ESA </li>
+<li>Sara Aparício 2nd degree connection 2nd --- Earth Observation Data Scientist @ European Space Agency </li>
+<li>HIRING Giuseppe Borghi 2nd degree connection 2nd --- Head of the Φ-lab Division at European Space Agency - ESA Earth Observation Programmes Directorate </li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Deep-learning-&amp;-Machine-Learning">Deep learning &amp; Machine Learning<a class="anchor-link" href="#Deep-learning-&amp;-Machine-Learning">&#182;</a></h2><p><strong>The easiest takeaway for understanding the difference between machine learning and deep learning is to know that deep learning is machine learning.</strong></p>
+<ul>
+<li><strong>Machine learning</strong> is an application of AI that includes algorithms that parse data, learn from that data, and then apply what they’ve learned to make informed decisions. </li>
+<li><strong>Deep learning</strong> is a subfield of machine learning that structures algorithms in layers to create an "artificial neural network” that can learn and make intelligent decisions on its own.</li>
+</ul>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;./Ressources/Practical Statistics for Data Scientists.pdf&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14602,47 +15029,222 @@ In main :  81
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-Cell-outputWrapper">
 
-     </div>
-</div>
-</div>
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+
+        <iframe
+            width="800"
+            height="600"
+            src="./Ressources/Practical Statistics for Data Scientists.pdf"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+</div>
 
-     </div>
 </div>
-</div>
+
 </div>
 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
+<hr>
+<h2 id="1.-Intro-Deep-Learning">1. Intro Deep Learning<a class="anchor-link" href="#1.-Intro-Deep-Learning">&#182;</a></h2><p><strong>Le machine Learning</strong>
+Machine Learning = domaine d'IA où on va programmer une <em>machine</em> capable de trouver les meilleures paramètres pour décrire une courbe afin d'analyser des données.<br>
+On va donc créer un algo d'<strong>optimisation</strong> capable de trouver les meilleurs paramètre pour avoir le modèle le plus juste. Il va chercher à <strong>minimiser la distance</strong> entre le <strong>modèle</strong> et les <strong>points</strong> :
+<img src="https://puu.sh/HNtSQ/c583f6871d.png" alt=""></p>
+<blockquote><p>Donc en gros, on va développer un modèle utilisant des algos d'optimisation pour minimiser les erreurs entre ce dernier et les données.</p>
+</blockquote>
+<p>Pleins de modèles existent comme notamment:</p>
+<ul>
+<li>Les modèles linéaires (utilisant par exemple la <em>Descente de Gradients</em>)</li>
+<li>Les arbres de décision (utilisant par exemple l'<em>Algorithme CART</em>)</li>
+<li>Les Support Vector Machines (utilisant par exemple la <em>Marge Maximum</em>)</li>
+</ul>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Thibault <strong>Santonja</strong><br>
-2021</p>
+<p><strong>Et le Deep learning dans tout ça ?</strong><br>
+Le deep learning consiste simplement à utiliser un type de modèle : <strong>Les réseaux de Neurones Artificiels</strong><br>
+Ici, plutôt que d'avoir une fonction à optimiser, nous aurons une série de fonctions (les <em>neurones</em>) reliées en <em>réseau</em>. Plus il y a de fonctions, plus on dit que le réseau est profond et plus il sera capable de résoudre des problèmes complexes.</p>
+<h2 id="2.-History">2. History<a class="anchor-link" href="#2.-History">&#182;</a></h2><h3 id="2.1.-R&#233;seaux-neuronaux-(1943)">2.1. R&#233;seaux neuronaux (1943)<a class="anchor-link" href="#2.1.-R&#233;seaux-neuronaux-(1943)">&#182;</a></h3><p>Créés en 1943 par Warren McCulloch et Walter Pitts (dans <em>A logical calculus of the ideas immanent in nervous activity</em>), ils ont essayé de représenté le fonctionnement des neurones. Un neurone peut recevoir des excitateurs (+1) ou des inibiteurs (-1), si la somme est supérieure à un seuil, ils vont à leur tour emmetre quelque chose.<br>
+Nous avons donc une fonction <code>f</code> recevant différents signaux <code>x</code> (x1, x2, x3, ...) et retournant une valeur <code>y</code>. Nous avons deux grande étapes:</p>
+<ol>
+<li>L'<strong>aggrégation</strong>:  
+<pre><code>f = w1*x1 + w2*x2 + w3*x3 + ...</code></pre>
+Chaque <em>w</em> représente un coeficient multiplicateur (dans un neurone nous avons -1 et +1).</li>
+<li>l'<strong>activation</strong>: suivant le résultat précédant, on va décider la valeur à retourner. Par exemple avec 1 ou 0:
+<pre><code>y=1  si f&gt;=0
+y=0  sinon</code></pre>
+</li>
+</ol>
 
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Nous allons utiliser Python et surtout la librairie Numpy.</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.2.-Perceptron-(1957)">2.2. Perceptron (1957)<a class="anchor-link" href="#2.2.-Perceptron-(1957)">&#182;</a></h3><p>Le gros problème ici était de trouver les valeurs à adopter. En effet, sans algorithme d'apprentissage, il est nécessaire de saisir ces valeurs à la main.</p>
+<p>En 1957, <strong>Frank Rosenblack</strong> invente le <strong>perceptron</strong>, un premier pas vers l'apprentissage, permettant de trouver les valeurs des <code>w</code>. Il se repose sur la théorie de <strong>Hebb</strong>: lorsque 2 neurones biologiques s'excitent conjointement, ils renforcent leur lien synaptique: c'est la plasticité synaptique.<br>
+La logique du perceptron est d'entrainer le neuronne avec, pour des valeurs de x connus, des valeurs de y connus: à chaque fois qu'une entrée X est activée en même temps qu'une sortie Y, le neurone renforce ses paramètres W; <code>W = W + a(ytrue - y) * X</code> où a représente la vitesse d'apprentissage.</p>
+<p>Par exemple, si y doit etre vrai et que l'on a y faux, alors :</p>
+
+<pre><code>W = W + a(ytrue - y) * X
+W = W + a(1 - 0) * X
+W = W + a * X</code></pre>
+<p>donc, si on a <code>f = w1*x1 + w2*x2</code> avec <code>x1=1</code> et <code>x2=0</code>, alors :</p>
+
+<pre><code>w1 = w1 + a * 1
+w1 = w1 + a
+
+w2 = w2 + a * 0
+w2 = w2</code></pre>
+<p>A chaque fois que le neurone se trompera, le coeficien <em>wi</em> sera augmenté de <em>a</em>, jusqu'au moment où l'on dépassera le seuil d'activation et qu'il ne se trompera plus.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.3.-Perceptron-Multicouche-(1986)">2.3. Perceptron Multicouche (1986)<a class="anchor-link" href="#2.3.-Perceptron-Multicouche-(1986)">&#182;</a></h3><p>Problème : les perceptrons sont linéaires : l'inclinaison dépend de w1 et w2 et la position, de b (le biais) : <code>f = w1x1 + w2x2 + b</code>.<br>
+Bien que la technique est puissante, on peut séparer deux groupes de points, elle a très vite des problèmes face à la non linéarité des problèmes courant:</p>
+<table>
+<thead><tr>
+<th style="text-align:center">Vision linéaire</th>
+<th style="text-align:center">Monde réel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://puu.sh/HNumL/3f2d398a29.png" alt=""></td>
+<td style="text-align:center"><img src="https://puu.sh/HNunw/b5ffa73c9d.png" alt=""></td>
+</tr>
+<tr>
+<td style="text-align:center">Fonctionnement OK, on sépare correctement les deux groupes</td>
+<td style="text-align:center">Présence d'erreurs, faux positif / négatifs</td>
+</tr>
+</tbody>
+</table>
+<p>En 1986, <strong>Geoffrey Hinton</strong> créat le premier réseau de neuronne artificiel grâce aux <strong>Perceptrons Multicouches</strong>. Le principe est simple, associer plusieurs neurones sur différentes couches afin d'obtenir une fonction non linéaire :
+<img src="https://puu.sh/HNupT/488aeaddb7.png" alt=""></p>
+<p>Ici l'entrainement passera par un nouvel algorithme d'apprentissage, le <strong>Back-Propagation</strong>. Le principe est de déterminer comment la <strong>sortie du réseau</strong> varie en fonction des <strong>paramètres (W, b)</strong> de <strong>chaque couche</strong>. On va calculer une **chaîne de Gradients qui indique l'évolution de la sortie suivant la dernière couche, puis comment celle-ci varie en fonction de la couche précédente, et cetera:
+<img src="https://puu.sh/HNutG/9af1b872de.png" alt=""></p>
+<p>Pour résumer :</p>
+<ol>
+<li><strong>Forward propagation</strong> : on fait circuler les données de la première à la dernière couche pour créer une sortie y</li>
+<li><strong>Cost function</strong> : on va calculer l'erreur entre la sortie y et la sortie y true</li>
+<li><strong>Back propagation</strong> : on mesure comment la fonction cout varie à chaque couche du modèle en partant de la fin</li>
+<li><strong>Gradient Descent</strong> : on corrige les gradients avant de reboucler sur la première étape</li>
+</ol>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.4.-ImageNet-et-l'envol-du-Deep-Learning-(2012)">2.4. ImageNet et l'envol du Deep Learning (2012)<a class="anchor-link" href="#2.4.-ImageNet-et-l'envol-du-Deep-Learning-(2012)">&#182;</a></h3><p>Les réseaux neuronaux ont ensuite grandement évolués aux cours des années 90', mais un grand problème subsistait : l'accès aux données permettant d'entrainer les IA. Il a fallu attendre l'arrivée d'internet et des smartphones pour obtenir cette base de millions de données classée, répertoriée, labelisée et exploitable. Enfin, un second problème était la puissance de calcul encore trop limité durant les années 2000.</p>
+<p>C'est en 2012, notamment grâce à la compétition <em>ImageNet</em> et riche de l'envol d'internet, des smartphones quelques années auparavent, ainsi que de l'augmentation impressionnante de la puissance de GPU que le Deep Learning a pu prendre un nouvel envol avec des résultats intéressants.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.4.1.-PyTorch">2.4.1. PyTorch<a class="anchor-link" href="#2.4.1.-PyTorch">&#182;</a></h3><p><a href="https://pytorch.org/tutorials/beginner/ptcheat.html">Cheatsheet</a></p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
+<h3 id="2.4.2.-TensorFlow">2.4.2. TensorFlow<a class="anchor-link" href="#2.4.2.-TensorFlow">&#182;</a></h3><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pytorch</span>
+<span class="kn">import</span> <span class="nn">torch</span> 
+
+<span class="c1"># TensorFlow</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 

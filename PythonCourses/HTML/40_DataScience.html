@@ -14259,13 +14259,46 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="DataScience-avec-Python">DataScience avec Python<a class="anchor-link" href="#DataScience-avec-Python">&#182;</a></h1><p>Bonjour et bienvenu, avant de commencer ce cours, n'hésitez pas à jeter un oeil au cours sur Scikit ainsi que sur Numpy, Pandas et sur les plots, sachant que ces librairies seront très utilisées.</p>
+<h1 id="DataScience-avec-Python">DataScience avec Python<a class="anchor-link" href="#DataScience-avec-Python">&#182;</a></h1><p>La science de la donnée, quel jolie terme mais qui cache quoi ? La data science n'est pas une discipline nouvelle, bien au contraire elle existe depuis que l'on sait faire des matématiques, mais elle a pris une nouvelle dimension pendant les années 2010 - 2020 avec la quantité de données disponibles (internet, big data...) et la puissance des machine. Tout ceci nous a permis de pouvoir traiter beaucoup d'informations et de pouvoir les comprendre, les voir des tendances et même prédire l'évolution, avec des algorithmes dit d'apprentissage automatisé (Machine Learning / ML).</p>
+<blockquote><p>La data science consiste donc à travailler des données pour ensuite leur apporter une valeur.</p>
+</blockquote>
+<p>Ici nous parlerons Python (encore et toujours !). Pour être à l'aise en traitement de données avec Python, il est important de bien maitriser :</p>
+<ul>
+<li>Numpy : Pour travailler des tableaux / matrices de données</li>
+<li>Pandas : Pour travailler des tableaux de données de manière plus poussée</li>
+<li>Matplotlib et Seaborn : Pour tout ce qui est graphique. Le premier surtout et le second pour vous simplifier la vie</li>
+<li>Scikit : Car c'est la librairie de base en Python pour du machine learning, avec de nombreux modèles.</li>
+<li>SciPy : Surtout quand on veut traiter un signal et des images (séries de Fournier toussa toussa)</li>
+</ul>
+<p>A cela s'ajoute aussi une bonne compréhension des statistiques (oui la data science beaucoup ça), de l'algèbre linéaire (multiplication de matrice de données), de l'optimisation (on optimise de modèles), du machine learning et aussi (évidemment) du Python.</p>
+<p>Si vous comprenez et maitrîsez tout cela, alors vous serez de véritables experts de la données !</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tools</span> <span class="kn">import</span> <span class="n">find_file</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="1.-D&#233;marche-en-Data-Science">1. D&#233;marche en Data Science<a class="anchor-link" href="#1.-D&#233;marche-en-Data-Science">&#182;</a></h1><p>Cependant, on risque de s'y perdre avec toutes ces données. Il est donc important de se cadrer et de procéder par étapes. En général on a 4 grandes étapes : avoir des objectifs, analyser des données, traiter ces données, entrainer un modèle.</p>
+<p>Nous allons d'abords voir une démarche simple et efficace avant de voir des méthodes plus formalisées, intéressantes pour de plus gros projets. En effet, il existe de nombreuses méthodes, plus formalisées, pour gérer un projet de Data Science. Le plus connu est <strong>CRISP-DM</strong> (CRoss Industries Standard Process for Data Mining) que nous verrons en troisième partie. En effet, avant ça nous verrons une démarche un peu différente et plus intéressante.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="1.-D&#233;marche-basique">1. D&#233;marche basique<a class="anchor-link" href="#1.-D&#233;marche-basique">&#182;</a></h1><p>Une démarche de base à suivre est la suivante :</p>
+<h2 id="1.1.-D&#233;marche-de-base-d&#233;taill&#233;e">1.1. D&#233;marche de base d&#233;taill&#233;e<a class="anchor-link" href="#1.1.-D&#233;marche-de-base-d&#233;taill&#233;e">&#182;</a></h2><p>Comme on l'a dit au début, il y a 4 grandes étapes : avoir des objectifs, analyser des données, traiter ces données, entrainer un modèle. Détaillons chacune d'elle:</p>
 <ol>
 <li>Définir un objectif <strong>mesurable</strong>:<blockquote><p>Par exemple, prédire <em>y</em> avec 90% d'exactitude, une précision (prévient les faux positifs) de 60% et un recall (préviens les faux négatif) de 80%</p>
 </blockquote>
@@ -14306,13 +14339,12 @@ a.anchor-link {
 </ul>
 </li>
 </ol>
-<p>Il existe de nombreuses méthodes, plus formalisées, pour gérer un projet de Data Science. Le plus connu est <strong>CRISP-DM</strong> (CRoss Industries Standard Process for Data Mining). Mais de manière générale, on a toujours les étapes ci-dessus.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="2.-D&#233;marche-d&#233;taill&#233;e">2. D&#233;marche d&#233;taill&#233;e<a class="anchor-link" href="#2.-D&#233;marche-d&#233;taill&#233;e">&#182;</a></h1><p>La Data Science c'est donc avant tout de lcountience des données. Ainsi il est important d'adopter une bonne démarche pour ne pas être perdu et tourner en rond. De plus, jouer avec les données et leur donner une signification (les valoriser) peut etre très dangereux. Il faut vraiment faire attention à ce que l'on fait dire aux données.</p>
+<h2 id="1.2.-D&#233;marche-de-gestion-de-projet-de-Data-Science">1.2. D&#233;marche de gestion de projet de Data Science<a class="anchor-link" href="#1.2.-D&#233;marche-de-gestion-de-projet-de-Data-Science">&#182;</a></h2><p>La Data Science c'est donc avant tout de lcountience des données. Ainsi il est important d'adopter une bonne démarche pour ne pas être perdu et tourner en rond. De plus, jouer avec les données et leur donner une signification (les valoriser) peut etre très dangereux. Il faut vraiment faire attention à ce que l'on fait dire aux données.</p>
 <p>De manière générale, voici une démarche à suivre plus détaillée qu'en introduction :</p>
 <ol>
 <li><strong>Définir le problème</strong> : Il est important de se questionner sur le le problème et le projet avant de commencer, pour d'une part, bien le comprendre, et d'autre part, pour bien l'analyser. On peut utiliser la fameuse technique de gestion de projet des <em>5 pourquoi</em> afin de pousser l'analyse et répondre aux questions suivantes :<ul>
@@ -14374,6 +14406,204 @@ a.anchor-link {
 </ol>
 
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="2.-Machine-learning">2. Machine learning<a class="anchor-link" href="#2.-Machine-learning">&#182;</a></h1><p>Comme on l'a dit en introduction, le Machine Learning s'est développé en même temps que la Data Science "moderne". Voyons rapidement de quoi il en retourne.</p>
+<h3 id="En-bref">En bref<a class="anchor-link" href="#En-bref">&#182;</a></h3><p>Pour résumer en ML les 4 principales notions à connaitre sont :</p>
+<ul>
+<li>Les données d'entrées (dataset) sont composées d'entrées (features) Xi et d'une sortie (target) y.</li>
+<li>Le modèle est une fonction (linéaire, polynomiale), qui est défini par différents paramètres. On décide du modèle, la machine décide des paramètres.</li>
+<li>On va calculer la fonction coût :les erreurs entre chaque points et la courbe, afin de connaitre la performance du modèle</li>
+<li>On va chercher à minimiser le coût pour avoir le meilleur modèle<blockquote><p>Ces 4 points sont aussi les questions auxquelles on doit répondre en débutant un projet de ML:</p>
+<ul>
+<li>Quel dataset ? (Xi ?, y ?, nb lignes ?)</li>
+<li>Quel modèle ? (linéaire, polynomiale...)</li>
+<li>Quelle fonction coût ? (erreur quadratiques moyenne, erreur médiane moyenne...)</li>
+<li>Quelle fonction d'apprentissage / de minimisation (Moindres carrés, descente de Gradient...)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>Types de problèmes:</p>
+<ul>
+<li><strong>Régression</strong>: nombre infini de valeurs, variable continue, tenter de prédire une valeur à une variable continue (ex : prix selon différents paramètres)</li>
+<li><strong>classification</strong>: variable discrète, classer une variable (ex : vrai / faux)</li>
+</ul>
+<p>Type d'apprentissage:</p>
+<ul>
+<li><strong>Supervisé</strong>: on donne pour des valeurs X le résultat Y pour permettre à la machine d'apprendre et trouver l'association f(x) = y</li>
+<li><strong>Non-supervisé</strong>:</li>
+</ul>
+<p>Pour l'apprentissage supervisé, on utilise des dataset pour permettre à l'IA d'apprendre, avec n colonnes (features / paramètre) et m lignes (targets / exemples). Par convention, on note un dataset de cette manière :</p>
+<table>
+<thead><tr>
+<th style="text-align:center">Y</th>
+<th style="text-align:center">X1</th>
+<th style="text-align:center">X2</th>
+<th style="text-align:center">X3</th>
+<th style="text-align:center">...</th>
+<th style="text-align:center">Xn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">y^(1)</td>
+<td style="text-align:center">x^(1)1</td>
+<td style="text-align:center">x^(1)2</td>
+<td style="text-align:center">x^(1)3</td>
+<td style="text-align:center">..</td>
+<td style="text-align:center">x^(1)n</td>
+</tr>
+<tr>
+<td style="text-align:center">y^(2)</td>
+<td style="text-align:center">x^(2)1</td>
+<td style="text-align:center">x^(2)2</td>
+<td style="text-align:center">x^(2)3</td>
+<td style="text-align:center">..</td>
+<td style="text-align:center">x^(2)n</td>
+</tr>
+<tr>
+<td style="text-align:center">..</td>
+<td style="text-align:center">..</td>
+<td style="text-align:center">..</td>
+<td style="text-align:center">..</td>
+<td style="text-align:center">..</td>
+<td style="text-align:center">..</td>
+</tr>
+<tr>
+<td style="text-align:center">y^(m)</td>
+<td style="text-align:center">x^(m)1</td>
+<td style="text-align:center">x^(m)2</td>
+<td style="text-align:center">x^(m)3</td>
+<td style="text-align:center">..</td>
+<td style="text-align:center">x^(m)n</td>
+</tr>
+</tbody>
+</table>
+<p>On choisi le modèle (fonction linéaire, polynome degré 2, polynome degré 3...) mais c'est l'IA qui choisi les paramètres a, b, c... <code>f(x) = ... + ax² + bx + c</code></p>
+<p>Enfin, on va chercher à minimiser la fonction coût représentant l'erreur entre un point et le modèle.</p>
+<h3 id="Bonnes-ressources">Bonnes ressources<a class="anchor-link" href="#Bonnes-ressources">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">IFrame</span>
+
+<span class="n">reduction</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;XUFLq6dKQok&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1920</span><span class="o">/</span><span class="n">reduction</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1080</span><span class="o">/</span><span class="n">reduction</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+
+        <iframe
+            width="640.0"
+            height="360.0"
+            src="https://www.youtube.com/embed/XUFLq6dKQok"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="n">find_file</span><span class="p">(</span><span class="s2">&quot;Practical Statistics for Data Scientists&quot;</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+
+        <iframe
+            width="600"
+            height="400"
+            src=".\Ressources\Practical Statistics for Data Scientists.pdf"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
