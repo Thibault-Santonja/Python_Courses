@@ -21,4 +21,15 @@ def find_file(searched, path='.'):
             if file.startswith(searched):
                 return os.path.join(root, file)
 
-            
+
+def pip_update_all():
+    import pkg_resources
+    from subprocess import call
+
+    packages = [dist.project_name for dist in pkg_resources.working_set]
+    print('Call "pip install  --upgrade " for : ' + ' '.join(packages))
+    call("pip install --upgrade " + ' '.join(packages), shell=True)
+
+
+if __name__ == '__main__':
+    pass
