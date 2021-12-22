@@ -1,3 +1,10 @@
-# Jupyter_NoteBooks
+Python courses
+===
 
-Some Personal Notebooks on different subjects
+Some Notebooks for Python training.
+
+
+---
+
+Thibault *Santonja*</br>
+*2021*
